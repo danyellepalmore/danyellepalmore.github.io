@@ -18,9 +18,10 @@ boolean = true;
 function calculateSummary(validResults) {
     let min = Math.min(...validResults);
     let max = Math.max(...validResults);
+    //takes array and combines all elements into single value
     let total = validResults.reduce((acc, num) => acc + num, 0);            //what does this do?
     let avg = total / validResults.length;
-    return (min, max, avg, total);
+    return {min, max, avg, total};
 }
 
 //table to display results of above
@@ -90,10 +91,10 @@ if(results.length > 0){
         document.write("<h2>Summary</h2>");
         document.write("<table>");
         document.write("<tr><th>Minimum</th><th>Maximum</th><th>Average</th><th>Total</th></tr>");
-        document.write("<tr><td>" + summary.min + "</td><td>"+ summary.max + "</td><td>" + summary.avg.toFixed(2) + "</td></tr>");
+        document.write("<tr><td>" + summary.min + "</td><td>"+ summary.max + "</td><td>" + summary.avg.toFixed(2) + "</td><td>" + summary.total+"</td></tr>");
         document.write("</table>");
     } else {
-        document.write("<p> Novalid results to display in the summary</p>");
+        document.write("<p> Novalid results to display</p>");
     }
 
 
